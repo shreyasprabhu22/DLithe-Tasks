@@ -1,0 +1,20 @@
+n1=int(input())
+n2=int(input())
+a=[]
+b=[]
+c=[]
+num1=0
+num2=0
+for i in range(n1):
+    num1=num1*10+ int(input())
+for i in range(n2):
+    num2 = num2*10 + (int(input()))
+print(num1)
+print(num2)
+num3=num1+num2
+num3=str(num3)
+
+
+for i in num3:
+    c.append(int(i))
+print (c)
