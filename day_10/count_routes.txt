@@ -1,0 +1,26 @@
+int ans = 0;
+void path_counter_utils(struct graph *g, int src, int dest, int visit[]) {
+    visit[src] = 1;
+
+    if (src == dest) {
+        ans++;
+    } else {
+        struct ListNode *ptr = g->head[src];
+        for (; ptr != NULL; ptr = ptr->next) {
+            if (visit[ptr->data] == 0) {
+                path_counter_utils(g, ptr->data, dest, visit);
+            }
+        }
+    }
+
+    visit[src] = 0;
+}
+
+int path_counter(int V, struct graph *g, int src, int dest) {
+    int visit[V + 5];
+    ans = 0;
+    memset(visit, 0, sizeof(visit));
+
+    path_counter_utils(g, src, dest, visit);
+    return ans;
+}
